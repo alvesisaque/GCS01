@@ -1,0 +1,14 @@
+language: python
+
+python:
+  - "2.7"
+  - "3.5"
+
+install:
+  - "pip install -r requirements.txt"
+# command to run tests
+script:
+  - pytest
+  - python django-basic/manage.py migrate
+  - python django-basic/manage.py test
+  - flake8 --exclude polls/migrations/,django-basic/manage.py  .
