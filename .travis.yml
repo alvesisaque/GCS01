@@ -1,13 +1,17 @@
 language: python
-
 python:
-  - "2.7"
-  - "3.5"
-
+- '2.7'
+- '3.5'
 install:
-  - "pip install -r requirements.txt"
-# command to run tests
+- pip install -r requirements.txt
 script:
-  - python manage.py migrate
-  - python manage.py test
-  - flake8 --exclude polls/migrations/,manage.py  .
+- python manage.py migrate
+- python manage.py test
+- flake8 --exclude polls/migrations/,manage.py  .
+deploy:
+  provider: heroku
+  api_key:
+    secure: j1US6VGC6gSG5suarfpS2XxrUvpgAaNBRO+Xd1XGY6muj6oa2D9UvQO1CvzS7Pgi3Kp+MTEoV5DOV+oNmg/gJpD25ZUvMoWgjINC4pYVU4Lb7upaFzhUaLRub7HCvTGkT0jRBsuC1RPjIrEP9DDBZdJXinnhCAOCT0cr+tXGGKAvhBHbmhFLwcsQYn94b7lRE5lfw9zn85sK1RughR8xF9X1Ta06pDfEy/j++5BgpBkmpFUml+OIctnb0Z3cUYAuGH3LCKhj+uN4PrsO5g6afNtHRx1ZnXDSC+bDqdMab8dP4iRTdJD+AR8NP4zx4n1WHokxY0m3FBE3vp814drcJk9fdK6Mumd8liP/5j9/xPp0vwgXb1BHAyc8JMLimKVdvOfp9gcW46DdsPBZo8/S/Ly6LNpbryzj7ljzSdKW4I23umCrRrAnk6KL76nw796zoX28sO7cEulBdyL7PuMc5QDJPZ+gKGf/oBlbYC9Lm4ubZ97+/wzsvT3CbfLfxBLBrY8qQbIU/3SYlOYnxv8Z3bw+obY3H5ZdUna9z5HC3woIyrPhTy0Ryt0/DTxbfc1Sqvp7dEsRmUqsTJXo8u8lWkWsMGnJ6pcYMxVLFssdMVOUkEoM7g42eP5zpKeX59GY3hL3YddPM/zqYoH7MZROfsyj4gWDlDz0TXZSchuxJpI=
+  app:
+    master: GCS01
+    production: gcs01-alvesisaque-travis
