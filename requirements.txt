@@ -1,6 +1,5 @@
 boto==2.40.0
 chardet==2.3.0
-cliapp==1.20160724
 cmdtest==0.26
 configparser==3.5.0
 cryptography==1.5
